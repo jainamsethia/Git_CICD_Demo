@@ -2,7 +2,7 @@ name: Python CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, add-ci]
   pull_request:
     branches: [main]
 
@@ -21,7 +21,7 @@ jobs:
       - name: Install test dependency
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements-dev.txt
+          python -m pip install -r requirements-dev.txt
 
       - name: Run tests
-        run: pytest -v
+        run: python -m pytest -v
